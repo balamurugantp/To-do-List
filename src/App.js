@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TodoInput from '../src/components/TodoInput';
 import TodoList from '../src/components/TodoList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -8,17 +9,17 @@ const App = () => {
   useEffect(() => {
     //default data
     const initialTodos = [
-      { id: 1, text: 'Java', completed: false },
-      { id: 2, text: 'Angular', completed: false },
-      { id: 3, text: 'React', completed: false },
+      { id: 1, name: 'Java', completed: false },
+      { id: 2, name: 'Angular', completed: false },
+      { id: 3, name: 'React', completed: false },
     ];
     setTodos(initialTodos);
   }, []);
 
-  const addTodo = (text) => {
+  const addTodo = (name) => {
     const newTodo = {
       id: Date.now(),
-      text: text,
+      name: name,
       completed: false,
     };
     setTodos([...todos, newTodo]);
